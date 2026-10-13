@@ -8,6 +8,7 @@
     "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\""
   },
   "devDependencies": {
+    "html-validate": "^11.16.2",
     "prettier": "^3.6.2"
   }
 }
