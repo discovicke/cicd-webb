@@ -18,8 +18,8 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install Stylelint
-        run: npm install --no-save stylelint stylelint-config-standard
+      - name: Install dependencies
+        run: npm ci
 
       - name: Create config if missing
         run: |
