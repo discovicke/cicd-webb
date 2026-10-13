@@ -1,0 +1,13 @@
+{
+  "name": "cicd-webb",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Statisk webbsida – övningsuppgift CI/CD vecka 1",
+  "scripts": {
+    "format": "prettier --write \"src/webb/index.html\" \"src/webb/styles.css\"",
+    "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\""
+  },
+  "devDependencies": {
+    "prettier": "^3.6.2"
+  }
+}
