@@ -5,7 +5,9 @@
   "description": "Statisk webbsida – övningsuppgift CI/CD vecka 1",
   "scripts": {
     "format": "prettier --write \"src/webb/index.html\" \"src/webb/styles.css\"",
-    "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\""
+    "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\"",
+    "validate:html": "html-validate \"**/*.html\""
+    
   },
   "devDependencies": {
     "html-validate": "^11.16.2",
