@@ -1,31 +1,18 @@
 name: Stylelint
 
 on:
-  push:
-    branches: [main]
   pull_request:
     branches: [main]
+  workflow_call:
 
 jobs:
   stylelint:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v7
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v7
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
           node-version: 22
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Create config if missing
-        run: |
-          if [ ! -f .stylelintrc.json ]; then
-            echo '{ "extends": ["stylelint-config-standard"] }' > .stylelintrc.json
-          fi
-
-      - name: Run Stylelint
-        run: npx stylelint "**/*.css" --ignore-pattern "node_modules/**"
+          cache: npm
+      - run: npm ci
+      - run: npm run stylelint

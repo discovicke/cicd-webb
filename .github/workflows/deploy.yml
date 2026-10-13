@@ -1,0 +1,39 @@
+name: Deploy
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  html-validate:
+    uses: ./.github/workflows/html-validate.yml
+  stylelint:
+    uses: ./.github/workflows/stylelint.yml
+  prettier:
+    uses: ./.github/workflows/prettier.yml
+
+  build:
+    needs: [html-validate, stylelint, prettier]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Show size savings
+        run: |
+          for f in index.html styles.css; do
+            before=$(wc -c < src/webb/$f)
+            after=$(wc -c < dist/$f)
+            echo "$f: $before -> $after bytes"
+          done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: minified-site
+          path: dist

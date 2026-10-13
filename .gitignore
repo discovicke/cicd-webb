@@ -432,3 +432,5 @@ FodyWeavers.xsd
 .DS_Store
 
 .idea/*
+# Build output
+dist/
