@@ -8,8 +8,8 @@
     "prettier:fix": "prettier --write \"src/webb/index.html\" \"src/webb/styles.css\"",
     "stylelint": "stylelint \"src/webb/**/*.css\"",
     "stylelint:fix": "stylelint \"src/webb/**/*.css\" --fix",
-    "htmlvalidate": "html-validate \"**/*.html\"",
-    "htmlvalidate:fix": "html-validate --fix \"**/*.html\"",
+    "htmlvalidate": "html-validate \"src/webb/**/*.html\"",
+    "htmlvalidate:fix": "html-validate --fix \"src/webb/**/*.html\"",
     "check": "npm run htmlvalidate && npm run stylelint && npm run prettier",
     "fix": "npm run htmlvalidate:fix && npm run stylelint:fix && npm run prettier:fix"
   },
