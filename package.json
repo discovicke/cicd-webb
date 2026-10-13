@@ -8,7 +8,10 @@
     "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\"",
     "lint:css": "stylelint \"src/webb/**/*.css\"",
     "lint:css:fix": "stylelint \"src/webb/**/*.css\" --fix",
-    "validate:html": "html-validate \"**/*.html\""
+    "validate:html": "html-validate \"**/*.html\"",
+    "validate:html:fix": "html-validate --fix \"**/*.html\"",
+    "check": "npm run validate:html && npm run lint:css && npm run format:check",
+    "fix": "npm run validate:html:fix && npm run lint:css:fix && npm run format"
   },
   "devDependencies": {
     "html-validate": "^11.16.2",
