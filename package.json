@@ -11,10 +11,12 @@
     "htmlvalidate": "html-validate \"src/webb/**/*.html\"",
     "htmlvalidate:fix": "html-validate --fix \"src/webb/**/*.html\"",
     "check": "npm run htmlvalidate && npm run stylelint && npm run prettier",
-    "fix": "npm run htmlvalidate:fix && npm run stylelint:fix && npm run prettier:fix"
+    "fix": "npm run htmlvalidate:fix && npm run stylelint:fix && npm run prettier:fix",
+    "build": "mkdir -p dist && html-minifier-next src/webb/index.html -o dist/index.html --collapse-whitespace --remove-comments --remove-optional-tags --remove-redundant-attributes --use-short-doctype --minify-css true && cleancss -o dist/styles.css src/webb/styles.css"
   },
-
   "devDependencies": {
+    "clean-css-cli": "^5.6.3",
+    "html-minifier-next": "^8.10.8",
     "html-validate": "^11.16.2",
     "prettier": "^3.6.2",
     "stylelint": "^17.16.0",
