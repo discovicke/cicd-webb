@@ -5,9 +5,13 @@
   "description": "Statisk webbsida – övningsuppgift CI/CD vecka 1",
   "scripts": {
     "format": "prettier --write \"src/webb/index.html\" \"src/webb/styles.css\"",
-    "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\""
+    "format:check": "prettier --check \"src/webb/index.html\" \"src/webb/styles.css\"",
+    "lint:css": "stylelint \"src/webb/**/*.css\"",
+    "lint:css:fix": "stylelint \"src/webb/**/*.css\" --fix"
   },
   "devDependencies": {
-    "prettier": "^3.6.2"
+    "prettier": "^3.6.2",
+    "stylelint": "^17.16.0",
+    "stylelint-config-standard": "^40.0.0"
   }
 }
